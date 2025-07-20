@@ -8,7 +8,7 @@
   {%- else -%}
     {% set folder_source = node.path.split("/")[0] %}
     {% set filename_source = node.name.split(".")[0] %}
-    {% set env = var('env',target.name) %}
+    {% set env = var('env', target.name) %}
     {%- if folder_source == filename_source -%}
       {{ env ~ '_' ~ filename_source }}
     {%- else -%}
@@ -27,7 +27,7 @@
   {%- else -%}
     {% set folder_source = node.path.split("/")[1] %}
     {% set filename_source = node.name.split(".")[1] %}
-    {% set env = var('env',target.name) %}
+    {% set env = var('env', target.name) %}
     {%- if folder_source == filename_source -%}
       {{ env ~ '_' ~ filename_source }}
     {%- else -%}

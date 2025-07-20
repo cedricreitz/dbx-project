@@ -1,0 +1,30 @@
+resources:
+  jobs:
+    dbt_tasks:
+      name: dbt_tasks
+      environments:
+      - environment_key: dbt-default
+        spec:
+          client: '2'
+          dependencies:
+          - dbt-databricks>=1.0.0,<2.0.0
+      performance_target: STANDARD
+      tasks:
+      - task_key: bronze-source_1-table_1
+        environment_key: dbt-default
+        dbt_task:
+          project_directory: ../
+          commands:
+          - dbt run --target=${bundle.target} --select "bronze.source_1.table_1"
+          schema: source_1
+          profiles_directory: dbt_profiles/
+      - task_key: bronze-source_2-table_1
+        environment_key: dbt-default
+        dbt_task:
+          project_directory: ../
+          commands:
+          - dbt run --target=${bundle.target} --select "bronze.source_2.table_1"
+          schema: source_2
+          profiles_directory: dbt_profiles/
+        depends_on:
+        - task_key: bronze-source_1-table_1

@@ -1,4 +1,36 @@
 {
+    "python.envFile": "${workspaceRoot}/.env",
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+    "python.terminal.activateEnvironment": true,
+    "python.languageServer": "Pylance",
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "explorer.compactFolders": false,
+
+    "ruff.codeAction.fixViolation": {
+        "enable": true
+    },
+    "ruff.organizeImports": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [80, 100, 120],
+
+    "notebook.defaultFormatter": "charliermarsh.ruff",
+    "notebook.formatOnSave.enabled": true,
+    "notebook.formatOnCellExecution": true,
+    "notebook.lineNumbers": "on",
+    "notebook.output.scrolling": true,
+
+    "python.analysis.typeCheckingMode": "standard",
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit",
+            "source.organizeImports": "explicit"
+        }
+    },
+
+
     "python.analysis.stubPath": ".vscode",
     "jupyter.interactiveWindow.cellMarker.codeRegex": "^# COMMAND ----------|^# Databricks notebook source|^(#\\s*%%|#\\s*\\<codecell\\>|#\\s*In\\[\\d*?\\]|#\\s*In\\[ \\])",
     "jupyter.interactiveWindow.cellMarker.default": "# COMMAND ----------",
@@ -12,9 +44,14 @@
         "**/*.egg-info": true,
         "**/__pycache__": true,
         ".pytest_cache": true,
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/.mypy_cache": true,
+        "**/.ruff_cache": true,
     },
-    "python.envFile": "${workspaceRoot}/.env",
-    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
     "sqltools.connections": [
         {
             "connectionMethod": "VS Code Extension (beta)",
@@ -27,6 +64,9 @@
     ],
     "sqltools.autoConnectTo": "",
     "[jinja-sql]": {
-        "editor.defaultFormatter": "innoverio.vscode-dbt-power-user"
+        "editor.defaultFormatter": "dbtLabsInc.dbt"
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
     },
 }

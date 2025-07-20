@@ -1,9 +1,6 @@
+{{ config(
+  materialized = 'view'
+) }}
 
-{{
-  config(
-    materialized='view'
-  )
-}}
-
-
-SELECT 1 as first_col
+SELECT
+  1 AS first_col
