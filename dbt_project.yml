@@ -1,0 +1,30 @@
+name: 'dbx_project'
+version: '1.0.0'
+config-version: 2
+
+profile: 'default'
+
+require-dbt-version: ">=1.8.0,<2.0.0"
+
+model-paths: ["src/models"]
+analysis-paths: ["src/analyses"]
+test-paths: ["src/tests"]
+seed-paths: ["src/seeds"]
+macro-paths: ["src/macros"]
+snapshot-paths: ["src/snapshots"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  dbx_project:
+    +materialized: view
+
+vars:
+  env: "{{ target.name }}"
+
+
+flags:
+  use_materialization_v2: True

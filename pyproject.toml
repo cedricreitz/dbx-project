@@ -1,0 +1,11 @@
+[project]
+name = "dbx-project"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "databricks-connect>=17.0.1",
+    "dbt-databricks>=1.10.4",
+    "pip>=25.1.1",
+]
