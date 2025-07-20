@@ -1,6 +1,8 @@
 {
     "recommendations": [
         "redhat.vscode-yaml",
-        "innoverio.vscode-dbt-power-user",
+        "dbtlabsinc.dbt",
+        "henriblancke.vscode-dbt-formatter",
+        "databricks.databricks"
     ]
 }
