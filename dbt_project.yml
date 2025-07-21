@@ -22,6 +22,8 @@ models:
   dbx_project:
     +materialized: incremental
     +on_schema_change: sync_all_columns
+    +pre-hook:
+      - "{{ logging() }}"
 
 vars:
   layer_order: ["bronze", "silver", "gold"]
