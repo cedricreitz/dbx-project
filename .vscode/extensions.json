@@ -1,8 +1,7 @@
 {
     "recommendations": [
         "redhat.vscode-yaml",
-        "dbtlabsinc.dbt",
-        "henriblancke.vscode-dbt-formatter",
-        "databricks.databricks"
+        "databricks.databricks",
+        "yassun7010.vscode-shandy-sqlfmt"
     ]
 }

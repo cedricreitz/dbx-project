@@ -64,12 +64,15 @@
     ],
     "sqltools.autoConnectTo": "",
     "[jinja-sql]": {
-        "editor.defaultFormatter": "dbtLabsInc.dbt"
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "yassun7010.vscode-shandy-sqlfmt"
+    },
+    "[sql]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "yassun7010.vscode-shandy-sqlfmt",
     },
     "[yaml]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
-    "[sql]": {
-        "editor.defaultFormatter": "henriblancke.vscode-dbt-formatter"
-    },
+    "sqlfluff.dialect": "databricks",
 }
