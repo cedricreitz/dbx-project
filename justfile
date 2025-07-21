@@ -15,3 +15,6 @@ compile:
 deploy:
 	just compile
 	databricks bundle deploy
+
+destroy:
+	databricks bundle destroy --auto-approve

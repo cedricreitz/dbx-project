@@ -45,7 +45,7 @@ uv tool install mypy
 uv tool install rust-justfile
 ```
 
-Now you can run ```just setup``` and follow the instructions. The justfile also features two other commands ```just compile``` and ```just deploy```. The first only compiles the dbt project and the second also deploys it to the selected databricks workspace. They are by no means the recommended way to do things,  yet it helps you to do your first deployment fast.
+Now you can run ```just setup``` and follow the instructions. The justfile also features two other commands ```just compile``` and ```just deploy```. The first only compiles the dbt project and the second also deploys it to the selected databricks workspace. These give you a quickstart to deploy your first assetbundle fast. ```just destroy``` destroys the bundle if deployed again without need for approval.
 
 
 
