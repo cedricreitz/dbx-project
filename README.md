@@ -24,10 +24,8 @@ This repository is a modified version of the databricks asset bundles dbt templa
 
 Besides the changed layout it also automatically resolves to the unity catalog based on the targets described in the profiles.yml.
 
-To use this repo you need to install ```uv``` ([uv installation](https://docs.astral.sh/uv/getting-started/installation/))
-
-Also you need to create a .env file like below and populate it.
-### Requirements for .env
+# Project Setup
+### Content of .env
 ```
 set -a
 DATABRICKS_HOST=
@@ -38,6 +36,17 @@ DBT_ACCESS_TOKEN=$DATABRICKS_TOKEN
 DBT_PROFILES_DIR="${PWD}/dbt_profiles"
 set +a
 ```
+
+To use this repo you need to install [uv](https://docs.astral.sh/uv/getting-started/installation/). Also you need to install the [Databricks CLI](https://docs.databricks.com/aws/en/dev-tools/cli/install#curl-update).
+Run this afterwards to install the recommended tools:
+```
+uv tool install ruff
+uv tool install mypy
+uv tool install rust-justfile
+```
+
+Now you can run ```just setup``` and follow the instructions. The justfile also features two other commands ```just compile``` and ```just deploy```. The first only compiles the dbt project and the second also deploys it to the selected databricks workspace. They are by no means the recommended way to do things,  yet it helps you to do your first deployment fast.
+
 
 # core
 
