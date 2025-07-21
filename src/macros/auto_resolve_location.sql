@@ -29,7 +29,7 @@
     {% set filename_source = node.name.split(".")[1] %}
     {% set env = var('env', target.name) %}
     {%- if folder_source == filename_source -%}
-      {{ env ~ '_' ~ filename_source }}
+      {{ filename_source }}
     {%- else -%}
       {{ exceptions.raise_compiler_error("Filename and folder location do not match. \n Please make sure you name the file/folder according to its location following the database/schema and <datbase>.<schema>.<tablename>.sql format. Affected model: " ~ node.path) }}
     {%- endif -%}

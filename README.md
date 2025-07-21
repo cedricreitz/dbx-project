@@ -138,10 +138,13 @@ https://docs.databricks.com/dev-tools/vscode-ext.html. Third-party extensions
 related to dbt may further enhance your dbt development experience!
 
 ### Required ENV Variables
-
-DATABRICKS_HOST
-DATABRICKS_TOKEN
-DATABRICKS_HTTP_PATH
+```
+set -a
+DATABRICKS_HOST=
+DATABRICKS_TOKEN=
+DATABRICKS_HTTP_PATH=
 DBT_HOST=$DATABRICKS_HOST
 DBT_ACCESS_TOKEN=$DATABRICKS_TOKEN
-DBT_PROFILES_DIR="${pwd}/dbt_profiles"
+DBT_PROFILES_DIR="${PWD}/dbt_profiles"
+set +a
+```
