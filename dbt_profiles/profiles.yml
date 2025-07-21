@@ -1,7 +1,6 @@
 # This file defines dbt profiles for deployed dbt jobs.
 default:
   target: dev # default target
-  threads: 8
   outputs:
     # Doing local development with the dbt CLI?
     # Then you should create your own profile in your .dbt/profiles.yml using 'dbt init'
@@ -14,12 +13,12 @@ default:
       method: http
       catalog: dbt
       schema: source_1 #"{{ var('dev_schema') }}"
+
       # The workspace host / token are provided by Databricks
       # see databricks.yml for the workspace host used for 'dev'
       host: "{{ env_var('DBT_HOST') }}"
-      http_path: "{{ env_var('DATABRICKS_HTTP_PATH') }}"
+      http_path: /sql/1.0/warehouses/76d3865c7a1e5b77
       token: "{{ env_var('DBT_ACCESS_TOKEN') }}"
-      threads: 8
 
     # The test target when deployed with the Databricks CLI
     test:
@@ -27,12 +26,12 @@ default:
       method: http
       catalog: dbt
       schema: bronze
+
       # The workspace host / token are provided by Databricks
       # see databricks.yml for the workspace host used for 'prod'
       host: "{{ env_var('DBT_HOST') }}"
-      http_path: "{{ env_var('DATABRICKS_HTTP_PATH') }}"
+      http_path: /sql/1.0/warehouses/76d3865c7a1e5b77
       token: "{{ env_var('DBT_ACCESS_TOKEN') }}"
-      threads: 8
 
     # The production target when deployed with the Databricks CLI
     prod:
@@ -40,9 +39,9 @@ default:
       method: http
       catalog: dbt
       schema: bronze
+
       # The workspace host / token are provided by Databricks
       # see databricks.yml for the workspace host used for 'prod'
       host: "{{ env_var('DBT_HOST') }}"
-      http_path: "{{ env_var('DATABRICKS_HTTP_PATH') }}"
+      http_path: /sql/1.0/warehouses/76d3865c7a1e5b77
       token: "{{ env_var('DBT_ACCESS_TOKEN') }}"
-      threads: 8
