@@ -9,7 +9,7 @@ set shell := ["bash", "-c"]
 python := "./.venv/bin/python"
 
 compile:
-	dbt compile
+	dbt parse
 	{{python}} ./scripts/generate_dependency_graph.py
 
 deploy:

@@ -63,29 +63,7 @@ and deployment to production (using Databricks Asset Bundles).
 
 ## Development setup
 
-1. Install the Databricks CLI from https://docs.databricks.com/dev-tools/cli/databricks-cli.html
-
-2. Authenticate to your Databricks workspace, if you have not done so already:
-    ```
-    $ databricks configure
-    ```
-
-3. Install dbt
-
-   To install dbt, you need a recent version of Python. For the instructions below,
-   we assume `python3` refers to the Python version you want to use. On some systems,
-   you may need to refer to a different Python version, e.g. `python` or `/usr/bin/python`.
-
-   Run these instructions from the `core` directory. We recommend making
-   use of a Python virtual environment and installing dbt as follows:
-
-   ```
-   $ python3 -m venv .venv
-   $ . .venv/bin/activate
-   $ pip install -r requirements-dev.txt
-   ```
-
-4. Initialize your dbt profile
+1. Initialize your dbt profile
 
    Use `dbt init` to initialize your profile.
 
@@ -103,11 +81,6 @@ and deployment to production (using Databricks Asset Bundles).
    To setup up additional profiles, such as a 'prod' profile,
    see https://docs.getdbt.com/docs/core/connect-data-platform/connection-profiles.
 
-5. Activate dbt so it can be used from the terminal
-
-   ```
-   $ . .venv/bin/activate
-    ```
 
 ## Local development with dbt
 
@@ -126,7 +99,7 @@ your Python virtual environment!)
 To just evaluate a single model defined in a file called orders.sql, use:
 
 ```
-$ dbt run --model orders
+$ dbt run --select orders
 ```
 
 Use `dbt test` to run tests generated from yml files such as `models/schema.yml`
