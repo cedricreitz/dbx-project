@@ -10,7 +10,17 @@ resources:
             dependencies:
               - dbt-databricks>=1.0.0,<2.0.0
       performance_target: STANDARD
-      
+
+      parameters:
+        - name: full_refresh
+          default: ""
+        - name: full_refresh_from
+          default: ""
+        - name: full_refresh_whitelist
+          default: ""
+        - name: full_refresh_blacklist
+          default: ""
+
       #email_notifications:
       #  on_failure:
       #    - your_email@example.com

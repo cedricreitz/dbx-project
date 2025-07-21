@@ -12,7 +12,7 @@ class WorkflowGenerator:
         manifest_path: str = f"{os.getcwd()}/target/manifest.json",
         project_directory: str = "../",
         profiles_directory: str = "dbt_profiles/",
-        base_command: str = "dbt run --target=${bundle.target} --select",
+        base_command: str = "dbt run --target=${bundle.target} --vars='{full_refresh: {{job.parameters.full_refresh}}, full_refresh_from: {{job.parameters.full_refresh_from}}, full_refresh_whitelist: {{job.parameters.full_refresh_whitelist}}, full_refresh_blacklist: {{job.parameters.full_refresh_blacklist}} }' --select",
     ):
         self._manifest_path = manifest_path
         self._default_yaml_path = default_yaml_path

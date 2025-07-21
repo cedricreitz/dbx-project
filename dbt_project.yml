@@ -1,8 +1,8 @@
-name: 'dbx_project'
-version: '1.0.0'
+name: "dbx_project"
+version: "1.0.0"
 config-version: 2
 
-profile: 'default'
+profile: "default"
 
 require-dbt-version: ">=1.8.0,<2.0.0"
 
@@ -20,11 +20,12 @@ clean-targets:
 
 models:
   dbx_project:
-    +materialized: view
+    +materialized: incremental
+    +on_schema_change: sync_all_columns
 
 vars:
+  layer_order: ["bronze", "silver", "gold"]
   env: "{{ target.name }}"
-
 
 flags:
   use_materialization_v2: True

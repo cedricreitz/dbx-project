@@ -9,22 +9,37 @@ resources:
           dependencies:
           - dbt-databricks>=1.0.0,<2.0.0
       performance_target: STANDARD
+      parameters:
+      - name: full_refresh
+        default: ''
+      - name: full_refresh_from
+        default: ''
+      - name: full_refresh_whitelist
+        default: ''
+      - name: full_refresh_blacklist
+        default: ''
       tasks:
       - task_key: bronze-source_1-table_1
         environment_key: dbt-default
         dbt_task:
           project_directory: ../
           commands:
-          - dbt run --target=${bundle.target} --select "bronze.source_1.table_1"
+          - 'dbt run --target=${bundle.target} --vars=''{full_refresh: {{job.parameters.full_refresh}},
+            full_refresh_from: {{job.parameters.full_refresh_from}}, full_refresh_whitelist:
+            {{job.parameters.full_refresh_whitelist}}, full_refresh_blacklist: {{job.parameters.full_refresh_blacklist}}
+            }'' --select "bronze.source_1.table_1"'
           schema: source_1
           profiles_directory: dbt_profiles/
-      - task_key: bronze-source_2-table_1
+      - task_key: silver-source_1-table_1
         environment_key: dbt-default
         dbt_task:
           project_directory: ../
           commands:
-          - dbt run --target=${bundle.target} --select "bronze.source_2.table_1"
-          schema: source_2
+          - 'dbt run --target=${bundle.target} --vars=''{full_refresh: {{job.parameters.full_refresh}},
+            full_refresh_from: {{job.parameters.full_refresh_from}}, full_refresh_whitelist:
+            {{job.parameters.full_refresh_whitelist}}, full_refresh_blacklist: {{job.parameters.full_refresh_blacklist}}
+            }'' --select "silver.source_1.table_1"'
+          schema: source_1
           profiles_directory: dbt_profiles/
         depends_on:
         - task_key: bronze-source_1-table_1

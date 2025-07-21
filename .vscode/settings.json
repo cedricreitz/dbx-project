@@ -69,4 +69,7 @@
     "[yaml]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
+    "[sql]": {
+        "editor.defaultFormatter": "henriblancke.vscode-dbt-formatter"
+    },
 }
